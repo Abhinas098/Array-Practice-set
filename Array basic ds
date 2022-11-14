@@ -1,0 +1,233 @@
+#Storing element in an Array:-
+'''
+n=int(input())
+a = []
+for i in range(1,n+1):
+    a.append(i)
+print(a)
+'''
+
+
+#Maximum in array:-
+# ans: 6
+'''
+a = [1,2,3,6]
+#max = 0
+max = a[0]
+for i in range(0,len(a)):
+    if a[i]>max:
+        max = a[i]
+print(max)
+'''
+
+
+#Minmum in array:-
+#ans: -6
+'''
+a = [-2,4,5,-6,2,1]
+min = a[0]#it take 1st element as min then check all
+
+for i in range(len(a)):
+    if a[i]<min:
+        min = a[i]
+print(min)
+'''
+
+
+#Prime no. in array:-
+#ans: prime no.
+'''
+n = 5
+flag = True 
+for i in range(2,n):
+    if n%i==0:
+        print('not prime no.')
+        flag = False 
+        break    
+if flag:
+    print('prime no.')
+'''
+
+
+#Store prime no. in an array\:-
+#ans: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+'''
+n=10
+a = []
+x=2
+while(len(a)<n):
+    flag = True
+    for i in range(2,x):
+        if i%x == 0:
+            flag = False
+            break        
+    if flag == True :
+        a.append(x)
+        x=x+1
+print(a)
+'''
+
+
+#SubArray:-
+#ans:-  #1
+        #12
+        #123
+        #2
+        #23
+        #3               
+'''
+a=[1,2,3]
+for i in range(0,len(a)):
+    str1 = ""
+    for j in range(i,len(a)):
+        str1 = str1+str(a[j])  
+        print(str1)
+'''
+
+
+#Max sum in subarray:-
+#ans : 6
+'''
+A =[1,2,3]
+max_sum = 0
+for i in range(len(A)):
+    sum =0
+    for j in range(i,len(A)):
+        sum = sum +A[j]
+        #print(sum)
+    if max_sum < sum:
+       max_sum = sum
+print(max_sum)
+'''
+
+
+#Sum of odd length of sub array:-
+#ans: 58
+'''
+arr = [1,4,2,5,3]
+xsum = 0 
+for i in range(0,len(arr)):
+    sum = 0
+    for j in range(i,len(arr)):
+        sum = sum + arr[j]
+    #print(sum)
+        if (j-i)%2 == 0:
+            xsum += sum
+print(xsum)
+
+'''
+
+
+#Running sum:-
+#ans :[1, 3, 6, 10, 15]
+'''
+nums =[1,2,3,4,5]
+list = []
+
+sum = 0
+for i in range(len(nums)):
+    sum = sum +nums[i]
+    list.append(sum)
+               
+print(list)
+print('total sum is:',sum)
+'''
+
+
+#Maximum in 2D Array:-
+#ans: 10
+'''
+arr = [[1,5],[7,3],[3,5]]
+max = 0
+
+for i in range(0,len(arr)):
+    sum = 0
+    for j in range(len(arr[i])):
+        sum = sum+arr[i][j]
+    if max < sum:
+        max = sum
+print(max)
+'''
+
+
+#Sorting:-
+#Bubble Sort:-
+'''
+arr = [2,6,4,5,3,1]
+tmp = 0
+for i in range(len(arr)-1):
+    for j in range(len(arr)-1-i):
+        if arr[j+1] > arr[j]:
+            tmp = arr[j+1]
+            arr[j+1] =arr[j]
+            arr[j] = tmp
+print(arr)      
+'''
+
+
+#insertion sort:-
+#ans : [9, 8, 7, 6, 5, 4, 3, 2, 1]
+'''
+arr = [2,6,4,5,3,1,7,9,8]
+        
+for i in range(1,len(arr)):
+    temp = arr[i]
+    j = i-1
+    while j>=0 and temp > arr[j]:
+        temp = arr[j+1]
+        arr[j+1] = arr[j]
+        arr[j] = temp
+        j = j-1
+    #arr[j+1] = temp
+    
+print(arr)
+'''   
+
+
+#Selection Sort:-
+#ans: [6, 5, 4, 3, 2, 1]
+'''
+arr = [2,6,4,5,3,1]
+for j in range(len(arr)):
+    max = arr[j]
+    index = j
+    for i in range(j,len(arr)):
+        if arr[i] > max:
+            max = arr[i]
+            index = i
+    temp = arr[j]
+    arr[j] = arr[index]
+    arr[index] = temp
+    
+print(arr)
+'''
+
+
+#Rotate Array:-
+#ans : [5, 6, 7, 1, 2, 3, 4]
+'''
+num = [1,2,3,4,5,6,7]
+k = 3
+
+count = 0
+i = 0
+val = num[0]
+rep = 0
+
+while count < len(num):
+    pos = (i+k) % len(num)
+    temp = num[pos]
+    num[pos] = val
+    i = pos
+    
+    if pos == rep:
+        rep = (i+1) % len(num)
+        val = num[rep]
+        i = rep
+        count +=1
+        continue
+        
+    val = temp   
+    count += 1
+print(num)
+'''
